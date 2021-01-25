@@ -1,0 +1,23 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+  cout << "BMI CALCULATOR" << endl;
+  
+  float weight, height, BMI;
+  
+  cout << "Please give your weight(kg) and height(cm): ";
+  
+  cin >> weight >> height;
+  
+  BMI = (weight*10000) /(height * height);
+  
+  cout << "BMI is " << BMI <<endl;
+  
+  if (BMI < 18.5)
+  cout << "Underweight"<< endl;
+  else if (BMI > 18.5 && BMI < 24.9)
+  cout << "Normal weight" << endl;
+  else cout << " Over weight" << endl;
+}
