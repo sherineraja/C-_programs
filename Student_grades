@@ -1,0 +1,19 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+    int grade, sum=0, n;
+    cout << "Enter the no of grades you want:";
+    cin >> n;
+    for (int i=0; i<n; i++)
+    {
+        do{
+            cout << "Grade "<< i+1 <<": ";
+            cin >> grade;
+            
+        }while (grade < 1 || grade > 10);
+        sum += grade;
+    }
+    cout << "Sum is " << sum << endl;
+    cout << "Average is " << sum/n <<endl;
+}
