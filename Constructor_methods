@@ -1,0 +1,31 @@
+#include <iostream>
+#include <list>
+using namespace std;
+
+class Class{
+    public:
+    int grade;
+    list<string> studentsname;
+    
+    Class(int Grade){                                       //constructor
+        grade = Grade;
+    }
+    
+    void getinfo() {                                        //methods
+        cout << "Class is " << grade << endl;
+        cout <<"Names:" <<endl;
+        for (string names: studentsname){
+             cout << names << endl;
+        }
+    }
+};
+
+int main() {
+    Class c1(2);
+    Class c2(4);
+    c1.studentsname.push_back("Sheela");
+    c1.studentsname.push_back("priya");
+    c1.studentsname.push_back("veena");
+    c1.getinfo();
+    c2.getinfo();
+}
