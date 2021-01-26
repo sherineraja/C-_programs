@@ -10,10 +10,9 @@ int main()
         do{
             cout << "Grade "<< i+1 <<": ";
             cin >> grade;
-            
         }while (grade < 1 || grade > 10);
         sum += grade;
     }
     cout << "Sum is " << sum << endl;
-    cout << "Average is " << sum/n <<endl;
+    cout << "Average is " << float (sum) /n <<endl;
 }
