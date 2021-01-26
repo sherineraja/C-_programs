@@ -1,0 +1,37 @@
+#include <iostream>
+using namespace std;
+
+void menu(){
+    cout << "********** Welcome **********" << endl;
+    cout << "1. Check Balance" << endl;
+    cout << "2. Deposit" << endl;
+    cout << "3. Withdraw" << endl;
+    cout << "4. Exit" << endl;
+    cout << "********* Thank You *********" << endl;
+}
+int main(){
+    int option;
+    double balance = 500;
+    do {
+    menu();
+    cout << "Option: ";
+    cin >> option;
+    switch (option) {
+        case 1: cout << "Your balance is Rs. " << balance << endl; break;
+        case 2: cout << "Deposit amount is Rs. ";
+        double depositamount;
+        cin >> depositamount;
+        balance += depositamount;
+        break;
+        case 3: cout << "Withdraw amount is Rs. ";
+        double withdrawamount;
+        cin >> withdrawamount;
+        if (withdrawamount > balance)
+        cout << "Not enough money" << endl;
+        else
+        balance -= withdrawamount;
+        break;
+        default: cout << "Not an valid option" << endl;
+    }
+    }while (option != 4);
+}
