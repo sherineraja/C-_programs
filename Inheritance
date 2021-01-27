@@ -1,0 +1,60 @@
+#include <iostream>
+#include <list>
+using namespace std;
+class Blog {
+    private:
+    string name;
+    int viewerscount=0;
+    list<string> publisheditems;
+    protected:
+    string authorname;
+    public:
+    Blog(string Name, string Authorname){
+        name = Name;
+        authorname = Authorname;
+    }
+    void getinfo() {
+        cout << "Name: " << name << endl;
+        cout << "Authorname: " << authorname << endl;
+        cout << "Viewerscount: " << viewerscount << endl;
+        cout << "Publisheditems: " << endl;
+        for (string items: publisheditems) {
+            cout <<  items << endl;
+        }
+        cout << endl; 
+    }
+    void view(){
+        viewerscount++;
+    }
+    void unview(){
+        if(viewerscount > 0){
+            viewerscount--;
+        }
+    }
+    void Publisheditems(string item){
+        publisheditems.push_back(item);
+    }
+};
+class Blog2 :public Blog{
+    public:
+    Blog2(string Name, string Authorname):Blog (Name, Authorname){
+    }
+    void practice(){
+        cout << authorname << " is practing blogging..." << endl;
+    }
+};
+int main() {
+    Blog a("C++", "Jennie");
+    a.getinfo();
+    Blog2 b("Python", "Jemmie");
+    Blog2 c("C", "Jason");
+    b.view();
+    b.view();
+    b.view();
+    b.Publisheditems("Python 1");
+    b.Publisheditems("Python 2");
+    b.unview();
+    b.getinfo();
+    b.practice();    //a.practice(); applicable only inside class
+    c.practice();
+}
