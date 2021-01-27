@@ -5,13 +5,14 @@ class Blog {
     private:
     string name;
     string authorname;
-    int viewerscount=0;
+    int viewerscount;
     list<string> publisheditems;
     
     public:
     Blog(string Name, string Authorname){
         name = Name;
         authorname = Authorname;
+        viewerscount = 0;
     }
     void getinfo() {
         cout << "Name: " << name << endl;
