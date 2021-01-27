@@ -1,0 +1,83 @@
+#include <iostream>
+#include <list>
+using namespace std;
+class Blog {
+    private:
+    string name;
+    int viewerscount;
+    list<string> publisheditems;
+    protected:
+    string authorname;
+    int contentQuality;
+    public:
+    Blog(string Name, string Authorname){
+        name = Name;
+        authorname = Authorname;
+        viewerscount = 0;
+        contentQuality = 0;
+    }
+    void getinfo() {
+        cout << "Name: " << name << endl;
+        cout << "Authorname: " << authorname << endl;
+        cout << "Viewerscount: " << viewerscount << endl;
+        cout << "Publisheditems: " << endl;
+        for (string items: publisheditems) {
+            cout <<  items << endl;
+        }
+        cout << endl; 
+    }
+    void view(){
+        viewerscount++;
+    }
+    void unview(){
+        if(viewerscount > 0){
+            viewerscount--;
+        }
+    }
+    void Publisheditems(string item){
+        publisheditems.push_back(item);
+    }
+    void Analytics() {
+        if(contentQuality>5) cout << authorname << " has a great contentQuality" << endl;
+        else cout << authorname << " has a poor contentQuality" << endl;
+    }
+};
+class Blog2 :public Blog{
+    public:
+    Blog2(string Name, string Authorname):Blog (Name, Authorname){
+    }
+    void practice(){
+        cout << authorname << " is practing blogging..." << endl;
+        contentQuality++;
+    }
+};
+class Blog3 :public Blog{
+    public:
+    Blog3(string Name, string Authorname):Blog (Name, Authorname){
+    }
+    void practice(){
+        cout << authorname << " is practing content editing..." << endl;
+        contentQuality++;
+    }
+};
+int main() {
+    Blog2 b("Python", "Jason");
+    Blog3 c("C", "Jemmie");
+    b.practice();   
+    b.practice();   
+    b.practice();   
+    b.practice();   
+    cout << endl;
+    c.practice();
+    c.practice();
+    c.practice();
+    c.practice();
+    c.practice();
+    c.practice();
+    cout << endl;
+    
+    Blog* b1 = &b;
+    Blog* b2 = &c;
+    b1 -> Analytics(); // b.Analytics(); also applicable
+    b2 -> Analytics();
+}
