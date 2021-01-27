@@ -1,0 +1,40 @@
+#include <iostream>
+#include <list>
+using namespace std;
+class Blog {
+    public:
+    string name;
+    string authorname;
+    int viewerscount;
+    list<string> publisheditems;
+    
+    Blog(string Name, string Authorname, int Viewerscount){
+        name = Name;
+        authorname = Authorname;
+        viewerscount = Viewerscount;
+    }
+    void getinfo() {
+        cout << "Name: " << name << endl;
+        cout << "Authorname: " << authorname << endl;
+        cout << "Viewerscount: " << viewerscount << endl;
+        cout << "Publisheditems: " << endl;
+        for (string items: publisheditems) {
+            cout <<  items << endl;
+        }
+        cout << endl; 
+    }
+};
+
+int main() {
+    Blog a("C++", "Jennie", 1000);
+    a.publisheditems.push_back("C++ part 1");
+    a.publisheditems.push_back("C++ part 2");
+    a.publisheditems.push_back("C++ part 3");
+    //a.publisheditems = { "C++ part 1", "C++ part 2", "C++ part 3"};
+    a.getinfo();
+    
+    Blog b("Python", "Jemmie", 2000);
+    b.publisheditems = { "Python part 1", "Python part 2", "Python part 3"};
+    b.getinfo();
+    
+}
