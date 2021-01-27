@@ -1,0 +1,42 @@
+// min and max numbers from an array
+
+#include <iostream> 
+using namespace std;
+/*int getMin(int arr[],int size){
+    int min = arr[0];
+    for (int i=1; i < size; i++){
+        if(arr[i] < min) 
+        min = arr[i];
+    }return min;
+}
+
+int getMax(int arr[],int size){
+    int max = arr[0];
+    for (int i=1; i < size; i++){
+        if(arr[i] > max) 
+        max = arr[i];
+    }return max;
+}*/
+
+void getMinMax(int arr[],int size, int* min, int* max) {
+    for (int i=1; i < size; i++){
+        if(arr[i] > *max) 
+        *max = arr[i];
+        if(arr[i] < *min) 
+        *min = arr[i];
+    }
+}
+int main(){
+   int arr[5] = {1,4,6,-3,87};
+   int min = arr[0];
+   int max = arr[0];
+   
+   getMinMax(arr,5,&min,&max);
+   
+   /*cout << "Min is " << getMin(arr,5) << endl;
+   cout << "Max is " << getMax(arr,5) << endl;*/
+   
+   cout << "Min is " << min << endl;
+   cout << "Max is " << max << endl;
+    
+}
