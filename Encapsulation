@@ -1,0 +1,52 @@
+#include <iostream>
+#include <list>
+using namespace std;
+class Blog {
+    private:
+    string name;
+    string authorname;
+    int viewerscount=0;
+    list<string> publisheditems;
+    
+    public:
+    Blog(string Name, string Authorname){
+        name = Name;
+        authorname = Authorname;
+    }
+    void getinfo() {
+        cout << "Name: " << name << endl;
+        cout << "Authorname: " << authorname << endl;
+        cout << "Viewerscount: " << viewerscount << endl;
+        cout << "Publisheditems: " << endl;
+        for (string items: publisheditems) {
+            cout <<  items << endl;
+        }
+        cout << endl; 
+    }
+    void view(){
+        viewerscount++;
+    }
+    void unview(){
+        if(viewerscount > 0){
+            viewerscount--;
+        }
+    }
+    void Publisheditems(string item){
+        publisheditems.push_back(item);
+    }
+};
+
+int main() {
+    Blog a("C++", "Jennie");
+    a.Publisheditems("C++ part 1");
+    a.Publisheditems("C++ part 2");
+    a.Publisheditems("C++ part 3");
+    a.view();
+    a.view();
+    a.unview();
+    a.getinfo();
+    
+    Blog b("Python", "Jemmie");
+    b.getinfo();
+    
+}
