@@ -1,0 +1,21 @@
+#include <iostream>
+using namespace std;
+int main() {
+    int size;
+    
+    cout << "Size: ";
+    cin >> size;
+    
+    int* num = new int[size]; // allocating memory
+    
+    for (int i=0; i<size; i++) {
+        cout << "Number " << i+1 << " : ";
+        cin >> num[i];
+    }
+    for (int i=0; i<size; i++) {
+        cout << num[i] << " ";
+    }
+    
+    delete[]num; //deallocating memory
+    num = NULL;
+}
